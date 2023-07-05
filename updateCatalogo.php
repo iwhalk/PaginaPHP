@@ -11,10 +11,12 @@
 
     $sku = $_POST['sku'];
     $tipo = $_POST['tipo'];
+    $tamaño = $_POST['tamaño'];
+    $material = $_POST['material'];
     $id = $_GET['id'];
 
-    $query_usuario="UPDATE Catalogo SET IdUser = 1, SKU = :sku, Nombre = :tipo WHERE IdCatalogo = :id";
-    $parametros = array("sku"=>$sku, "tipo"=>$tipo, "id"=>$id);
+    $query_usuario="UPDATE Catalogo SET IdUser = 1, SKU = :sku, Nombre = :tipo, Tamaño = :tam, Material = :mat WHERE IdCatalogo = :id";
+    $parametros = array("sku"=>$sku, "tipo"=>$tipo, "id"=>$id, "tam"=>$tamaño, "mat"=>$material);
     
     $queryMaker = new ConectDB();
 

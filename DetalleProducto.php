@@ -62,6 +62,21 @@
             color: #fff;
             border: none;
         }
+
+        .botonVolver {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #808080;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .botonVolver:hover {
+            background-color: #5a5a5a;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +95,8 @@
 
                 $SKU = $catalogo[0]["SKU"];
                 $tipo = $catalogo[0]["Nombre"];
+                $tamaño = $catalogo[0]["Tamaño"];
+                $material = $catalogo[0]["Material"];
                 
                 echo "<form action='updateCatalogo.php?id=$id' method='POST'>";
                 echo "<div class='form-group'>";
@@ -89,6 +106,14 @@
                 echo "<div class='form-group'>";
                 echo "<label for='tipo'>Tipo:</label>";
                 echo "<input type='text' name='tipo' value='$tipo' required>";
+                echo "</div>";
+                echo "<div class='form-group'>";
+                echo "<label for='tamaño'>Tamaño:</label>";
+                echo "<input type='text' name='tamaño' value='$tamaño' required>";
+                echo "</div>";
+                echo "<div class='form-group'>";
+                echo "<label for='material'>Material:</label>";
+                echo "<input type='text' name='material' value='$material' required>";
                 echo "</div>";
                 echo "<div class='btn-container'>";
                 echo "<input type='submit' value='Actualizar'>";
@@ -105,12 +130,22 @@
                 echo "<label for='tipo'>Tipo:</label>";
                 echo "<input type='text' name='tipo' required>";
                 echo "</div>";
+                echo "<div class='form-group'>";
+                echo "<label for='tamaño'>Tamaño:</label>";
+                echo "<input type='text' name='tamaño' required>";
+                echo "</div>";
+                echo "<div class='form-group'>";
+                echo "<label for='material'>Material:</label>";
+                echo "<input type='text' name='material' required>";
+                echo "</div>";
                 echo "<input type='submit' value='Agregar'>";
                 echo "</form>";
             }
         } else {
             echo "Id Invalido";
         }
+        
     ?>
+    <button class="botonVolver" onclick="window.location.href = 'Catalogo.php';">Volver</button>
 </body>
 </html>

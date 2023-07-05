@@ -13,3 +13,5 @@ CREATE TABLE Catalogo (
 	Nombre varchar(255) NOT NULL,
 	PRIMARY KEY (IdCatalogo)
 );
+
+ALTER TABLE Catalogo ADD Tamaño nvarchar(255), Material nvarchar(255);

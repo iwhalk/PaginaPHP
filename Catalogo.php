@@ -46,6 +46,21 @@
         .submenu a {
             margin-right: 10px;
         }
+
+        .botonVolver {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #808080;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .botonVolver:hover {
+            background-color: #5a5a5a;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +73,7 @@
             <th>Tipo</th>
             <th>Tamaño</th>
             <th>Material</th>
-            <th>Accion</th>
+            <th>Acción</th>
         </tr>
         <?php
             require_once('ObtenerCatalogo.php');
@@ -72,17 +87,23 @@
                     echo "<tr>";
                     echo "<td>" . $row["SKU"] . "</td>";
                     echo "<td>" . $row["Nombre"] . "</td>";
-                    echo "<td>" . "2cm" . "</td>";
-                    echo "<td>" . "Polifibrato" . "</td>";
+                    echo "<td>" . $row["Tamaño"] . "</td>";
+                    echo "<td>" . $row["Material"]. "</td>";
 
                     if ($row_count === count($catalogo) - 1) {
                         echo "<td class='submenu add-submenu'>
-                                <a href='DetalleProducto.php?IdCatalogo=" . $row["IdCatalogo"] . "'>Edit</a>
-                                <a href='DetalleProducto.php?IdCatalogo=" . "0" . "'>Agregar</a>
+                                <a href='DetalleProducto.php?IdCatalogo=" . $row["IdCatalogo"] . "'>
+                                    <img src='Media/edit.png' alt='Edit' width='20' height='20'>
+                                </a>
+                                <a href='DetalleProducto.php?IdCatalogo=0'>
+                                    <img src='Media/add.png' alt='Agregar' width='20' height='20'>
+                                </a>
                             </td>";
                     } else {
                         echo "<td class='submenu edit-submenu'>
-                                <a href='DetalleProducto.php?IdCatalogo=" . $row["IdCatalogo"] . "'>Edit</a>
+                                <a href='DetalleProducto.php?IdCatalogo=" . $row["IdCatalogo"] . "'>
+                                    <img src='Media/edit.png' alt='Edit' width='20' height='20'>
+                                </a>
                             </td>";
                     }
                     echo "</tr>";
@@ -90,9 +111,11 @@
                     $row_count++;
                 }
             } else {
-                echo "<tr><td colspan='3'>No hay productos.</td></tr>";
+                echo "<tr><td colspan='4'>No hay productos.</td></tr>";
             }
         ?>
     </table>
+    
+    <button class="botonVolver" onclick="window.location.href = 'Homepage.php';">Volver</button>
 </body>
 </html>

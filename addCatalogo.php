@@ -11,10 +11,12 @@
 
     $sku = $_POST['sku'];
     $tipo = $_POST['tipo'];
+    $tamaño = $_POST['tamaño'];
+    $material = $_POST['material'];
 
-    $query_usuario="INSERT INTO Catalogo (IdUser, SKU , Nombre)
-    VALUES (1 , :sku, :tipo)";
-    $parametros = array("sku"=>$sku, "tipo"=>$tipo);
+    $query_usuario="INSERT INTO Catalogo (IdUser, SKU , Nombre, Tamaño, Material)
+    VALUES (1 , :sku, :tipo, :tam, :mat)";
+    $parametros = array("sku"=>$sku, "tipo"=>$tipo, "tam"=>$tamaño, "mat"=>$material);
     
     $queryMaker = new ConectDB();
 
