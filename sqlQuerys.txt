@@ -1,0 +1,15 @@
+CREATE TABLE Usuarios (
+    IdUsuario int IDENTITY(1,1) NOT NULL,
+    Ususario varchar(255) NOT NULL,
+    Nombre varchar(255) NOT NULL,
+	Password varchar(255) NOT NULL,
+	PRIMARY KEY (IdUsuario),
+); 
+
+CREATE TABLE Catalogo (
+	IdCatalogo int IDENTITY(1,1) NOT NULL,
+	IdUser int NOT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
+	SKU varchar(255) NOT NULL,
+	Nombre varchar(255) NOT NULL,
+	PRIMARY KEY (IdCatalogo)
+);
